@@ -1,0 +1,46 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+crime = pd.read_csv('crime.csv')
+crime
+# Scatter Plot
+plt.plot(crime['Murder'], crime['Assault'])
+plt.xlabel('Murder')
+plt.ylabel('Assault')
+plt.title('Murder Vs Assault')
+plt.show()
+
+# Seaborn Scatter Plot
+plt.figure(figsize=(12, 6))
+sns.scatterplot(x='Murder', y='Assault', hue='Murder', s=100, data=crime)
+plt.title('Murder Vs Assault')
+plt.show()
+
+# Histogram
+plt.figure(figsize=(12, 6))
+plt.title('Histogram for robbery')
+plt.hist(crime['Robbery'])
+plt.show()
+
+# Bar Plot
+plt.figure(figsize=(12, 6))
+plt.title('Bar Plot for Robbery')
+plt.bar(crime.index, crime['Robbery'])
+plt.show()
+
+# Seaborn Bar Plot
+plt.figure(figsize=(12, 6))
+sns.barplot(x='Robbery', y='Year', data=crime)
+plt.title('Bar Plot for Robbery')
+plt.show()
+
+# Scatter Plot with Population and CarTheft
+x = crime['Population']
+y = crime['CarTheft']
+plt.figure(figsize=(12, 6))
+plt.scatter(x, y)
+plt.xlabel('Population')
+plt.ylabel('CarTheft')
+plt.title('Population Vs CarTheft')
+plt.show()
